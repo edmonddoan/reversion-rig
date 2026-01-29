@@ -10,7 +10,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import List, Optional, Union
-from .config import DATA_DIR, DATA_CONFIG
+from ..config import DATA_DIR, DATA_CONFIG
 
 
 def download_data(

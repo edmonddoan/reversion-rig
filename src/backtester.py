@@ -15,7 +15,7 @@ from pathlib import Path
 
 from .strategy import MeanReversionStrategy, Trade, Signal, Position
 from .indicators import calculate_all_indicators
-from .config import DEFAULT_PARAMS, VISUALIZATION_CONFIG
+from ..config import DEFAULT_PARAMS, VISUALIZATION_CONFIG
 
 
 @dataclass
