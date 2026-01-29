@@ -6,9 +6,15 @@ Example usage and demonstration script.
 Run with: python run.py --ticker AAPL --period 1y
 """
 
+import sys
+from pathlib import Path
+
+# Add project root to path for imports
+PROJECT_ROOT = Path(__file__).parent
+sys.path.insert(0, str(PROJECT_ROOT))
+
 import argparse
 import logging
-from pathlib import Path
 from datetime import datetime
 
 import pandas as pd

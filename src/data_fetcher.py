@@ -9,8 +9,8 @@ import yfinance as yf
 import pandas as pd
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import List, Optional, Union
-from ..config import DATA_DIR, DATA_CONFIG
+from typing import List, Optional, Union, Tuple
+from config import DATA_DIR, DATA_CONFIG
 
 
 def download_data(
@@ -84,10 +84,10 @@ def download_data(
         )
     
     # Flatten multi-index columns if single ticker
-    if isinstance(tickers, list) and len(tickers) == 1:
-        ticker = tickers[0]
-        df.columns = [col[0] if isinstance(col, tuple) else col for col in df.columns]
-        df = df.rename(columns=lambda x: f"{ticker}_{x}")
+    if len(tickers) == 1:
+        # New yfinance returns multi-level columns even for single ticker
+        if isinstance(df.columns, pd.MultiIndex):
+            df.columns = df.columns.get_level_values(1).tolist()
     elif isinstance(df.columns, pd.MultiIndex):
         df.columns = [f"{col[0]}_{col[1]}" if col[1] else col[0] for col in df.columns]
     

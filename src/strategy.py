@@ -133,7 +133,7 @@ class MeanReversionStrategy:
             f"take_profit={self.take_profit_pct:.1%})"
         )
     
-    def calculate_indicators(self, df: pd.DataFrame, price_col: str = "Close") -> pd.DataFrame:
+    def calculate_indicators(self, df: pd.DataFrame, price_col: str = "close") -> pd.DataFrame:
         """
         Calculate all required indicators for the strategy.
         
@@ -253,7 +253,7 @@ class MeanReversionStrategy:
         self,
         df: pd.DataFrame,
         initial_capital: float = 100000.0,
-        price_col: str = "Close"
+        price_col: str = "close"
     ) -> Dict[str, Any]:
         """
         Run the mean reversion strategy on historical data.

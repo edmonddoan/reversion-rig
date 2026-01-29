@@ -15,7 +15,7 @@ from pathlib import Path
 
 from .strategy import MeanReversionStrategy, Trade, Signal, Position
 from .indicators import calculate_all_indicators
-from ..config import DEFAULT_PARAMS, VISUALIZATION_CONFIG
+from config import DEFAULT_PARAMS, VISUALIZATION_CONFIG
 
 
 @dataclass
@@ -88,7 +88,7 @@ class Backtester:
         self,
         df: pd.DataFrame,
         initial_capital: float = DEFAULT_PARAMS["initial_capital"],
-        price_col: str = "Close",
+        price_col: str = "close",
         verbose: bool = True
     ) -> Dict[str, Any]:
         """
